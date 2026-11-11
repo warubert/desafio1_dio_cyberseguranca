@@ -47,10 +47,24 @@ Criando lista de users
 echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
 ```
 
+```
+user
+msfadmin
+admin
+root
+```
+
 Criando lista de senhas
 
 ```bash
 echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
+```
+
+```
+123456
+password
+qwerty
+msfadmin
 ```
 
 Força bruta com medusa e listas:
@@ -62,6 +76,7 @@ medusa -h 192.168.56.101 -U users.txt -P pass.txt -M ftp -t 6
 ![alt text](brute_force/image-5.png)
 
 Acessando ftp:
+
 ![alt text](brute_force/image-6.png)
 
 #### Mitigações
