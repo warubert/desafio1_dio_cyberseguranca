@@ -5,9 +5,9 @@
 Kali + Metasploitable2
 ![alt text](brute_force/image.png)
 
-### Força bruta em FTP
+## Força bruta em FTP
 
-#### metasploitable2
+### metasploitable2
 
 ```bash
 ifconfig
@@ -15,7 +15,7 @@ ifconfig
 
 ![alt text](brute_force/image-1.png)
 
-#### kali
+### kali
 
 Ping
 
@@ -79,7 +79,7 @@ Acessando ftp:
 
 ![alt text](brute_force/image-6.png)
 
-#### Mitigações
+### Mitigações
 
 - Desativar serviços não utilizados
 - Usasr protocolos mais fortes / atualizados
